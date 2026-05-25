@@ -1,361 +1,135 @@
 const roles = [
-
     "Embedded Systems Developer",
-
     "Firmware Engineer",
-
     "BLE Systems Developer",
-
     "USB Firmware Engineer",
-
     "Embedded Linux Learner",
-
     "Power Systems Researcher"
-
 ];
 
 const skills = [
-
     "STM32",
-
     "ESP32",
-
     "BLE",
-
     "BLE Mesh",
-
     "USB",
-
     "CDC",
-
     "HID",
-
     "UVC",
-
     "C",
-
     "C++",
-
     "Python",
-
     "UART",
-
     "I2C",
-
     "SPI",
-
     "Modbus",
-
     "Yocto",
-
     "Embedded Linux",
-
     "STM32MP1",
-
     "Bootloaders",
-
     "KiCad",
-
     "Gmsh",
-
     "Elmer FEM"
-
 ];
 
-const typingText =
-
-    document
-        .getElementById(
-            "typingText");
-
+const typingText = document.getElementById("typingText");
 let roleIndex = 0;
-
 let charIndex = 0;
-
 let deleting = false;
 
 function animateTyping() {
-
-    const current =
-
-        roles[
-        roleIndex];
-
-    if (!deleting) {
-
-        typingText
-            .textContent =
-
-            current.slice(
-                0,
-                charIndex++);
-
-        if (
-
-            charIndex >
-            current.length
-
-        ) {
-
-            deleting = true;
-
-            setTimeout(
-
-                animateTyping,
-
-                1500
-
-            );
-
-            return;
-
-        }
-
-    }
-    else {
-
-        typingText
-            .textContent =
-
-            current.slice(
-                0,
-                charIndex--);
-
-        if (
-
-            charIndex === 0
-
-        ) {
-
-            deleting = false;
-
-            roleIndex =
-
-                (roleIndex + 1)
-                %
-                roles.length;
-
-        }
-
+    if (!typingText) {
+        return;
     }
 
-    setTimeout(
+    const current = roles[roleIndex];
+    typingText.textContent = current.slice(0, charIndex);
 
-        animateTyping,
+    if (!deleting && charIndex < current.length) {
+        charIndex += 1;
+    } else if (!deleting) {
+        deleting = true;
+        window.setTimeout(animateTyping, 1500);
+        return;
+    } else if (charIndex > 0) {
+        charIndex -= 1;
+    } else {
+        deleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+    }
 
-        deleting
-            ?
-            40
-            :
-            90
-
-    );
-
+    window.setTimeout(animateTyping, deleting ? 40 : 90);
 }
 
 animateTyping();
 
-const profileCard = document.querySelector(
-
-    ".profile-card"
-
-);
-
-const typingConsoleElement = document.querySelector(
-
-    ".typing-console"
-
-);
+const profileCard = document.querySelector(".profile-card");
+const typingConsole = document.querySelector(".typing-console");
+const heroTitle = document.querySelector(".hero-title");
 
 function syncTypingConsoleHeight() {
-
-    if (!profileCard || !typingConsoleElement) {
-
+    if (!profileCard || !typingConsole) {
         return;
-
     }
 
-    typingConsoleElement.style.height =
-
-        `${profileCard.offsetHeight}px`;
-
+    if (window.innerWidth > 900) {
+        typingConsole.style.height = `${profileCard.offsetHeight}px`;
+    } else {
+        typingConsole.style.removeProperty("height");
+    }
 }
 
-window.addEventListener(
-
-    "load",
-
-    syncTypingConsoleHeight
-
-);
-
-window.addEventListener(
-
-    "resize",
-
-    syncTypingConsoleHeight
-
-);
-
-const skillsContainer =
-
-    document
-        .getElementById(
-            "skillsContainer");
-
-skills.forEach(
-
-    skill => {
-
-        const item =
-
-            document
-                .createElement(
-                    "div");
-
-        item.className =
-
-            "skill";
-
-        item.textContent =
-
-            skill;
-
-        skillsContainer
-            .appendChild(
-                item);
-
+function fitHeroTitle() {
+    if (!heroTitle || !heroTitle.parentElement) {
+        return;
     }
 
-);
+    const availableWidth = heroTitle.parentElement.clientWidth;
+    const measurementSize = 100;
 
-const menuButton =
+    heroTitle.style.fontSize = `${measurementSize}px`;
 
-    document
-        .getElementById(
-            "menuButton");
+    const titleWidth = heroTitle.scrollWidth;
+    const fittedSize = Math.floor(measurementSize * availableWidth / titleWidth);
 
-const navLinks =
+    heroTitle.style.fontSize = `${Math.max(fittedSize, 14)}px`;
+}
 
-    document
-        .querySelector(
-            ".nav-links");
+function syncHeroLayout() {
+    syncTypingConsoleHeight();
+    fitHeroTitle();
+}
 
-menuButton
-    .addEventListener(
+window.addEventListener("load", syncHeroLayout);
+window.addEventListener("resize", syncHeroLayout);
 
-        "click",
+const skillsContainer = document.getElementById("skillsContainer");
 
-        () => {
+if (skillsContainer) {
+    skills.forEach(skill => {
+        const item = document.createElement("div");
+        item.className = "skill";
+        item.textContent = skill;
+        skillsContainer.appendChild(item);
+    });
+}
 
-            navLinks
-                .classList
-                .toggle(
-                    "active");
+const projectCards = document.querySelectorAll(".project-card");
 
-        }
+if ("IntersectionObserver" in window) {
+    const projectObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                projectObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
 
-    );
-
-document
-    .querySelectorAll(
-        ".nav-links a")
-    .forEach(
-
-        item => {
-
-            item
-                .addEventListener(
-
-                    "click",
-
-                    () => {
-
-                        navLinks
-                            .classList
-                            .remove(
-                                "active");
-
-                    }
-
-                );
-
-        }
-
-    );
-
-window
-    .addEventListener(
-
-        "scroll",
-
-        () => {
-
-            const cards =
-
-                document
-                    .querySelectorAll(
-
-                        ".project-card"
-
-                    );
-
-            cards.forEach(
-
-                card => {
-
-                    const top =
-
-                        card
-                            .getBoundingClientRect()
-                            .top;
-
-                    if (
-
-                        top <
-                        window
-                            .innerHeight
-                        - 80
-
-                    ) {
-
-                        card.style.opacity = 1;
-
-                        card.style.transform =
-
-                            "translateY(0px)";
-
-                    }
-
-                }
-
-            );
-
-        }
-
-    );
-
-document
-    .querySelectorAll(
-
-        ".project-card"
-
-    )
-
-    .forEach(
-
-        card => {
-
-            card.style.opacity = 0;
-
-            card.style.transform =
-
-                "translateY(30px)";
-
-            card.style.transition =
-
-                ".5s";
-
-        }
-
-    );
+    projectCards.forEach(card => {
+        card.classList.add("reveal-ready");
+        projectObserver.observe(card);
+    });
+}

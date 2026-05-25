@@ -1,231 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>
-        Shubhendu Banerjee
-    </title>
-
+    <title>Shubhendu Banerjee | Home</title>
     <link rel="stylesheet" href="styles/template.css">
-
     <link rel="stylesheet" href="styles/index.css">
-
 </head>
-
 <body>
-
-    <nav class="navbar">
-
-        <div class="logo">
-
-            BSB
-
-        </div>
-
-        <ul class="nav-links">
-
-                <li>
-                    <a href="#about">
-                        About
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#skills">
-                        Skills
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#projects">
-                        Projects
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#contact">
-                        Contact
-                    </a>
-                </li>
-
-            </ul>
-
-            <button id="menuButton" class="menu-button">
-
-                ☰
-
+    <header class="site-header">
+        <nav class="navbar container" aria-label="Primary navigation">
+            <a class="logo" href="index.html" aria-label="Shubhendu Banerjee home">BSB</a>
+            <button class="menu-button" type="button" aria-label="Open navigation menu"
+                aria-controls="primaryMenu" aria-expanded="false">
+                &#9776;
             </button>
-
+            <ul id="primaryMenu" class="nav-links">
+                <li><a class="active" aria-current="page" href="index.html">Home</a></li>
+                <li><a href="who-am-i.html">Who I Am</a></li>
+                <li><a href="what-do-i-do.html">What I Do</a></li>
+                <li><a href="where-am-i.html">Where I Am</a></li>
+            </ul>
         </nav>
-
-        <main class="page-body">
-
-            <header class="hero">
-
-                <div class="hero-content">
-
-            <div>
-
-                <div class="typing-console hero-console">
-
-                    <span class="prompt">
-
-                        &gt;
-
-                    </span>
-
-                    <span id="typingText"></span>
-
-                    <span class="caret"></span>
-
-                </div>
-
-                <p class="hero-intro">
-
-                    Firmware engineer focused on
-                    Embedded Systems,
-                    USB,
-                    BLE,
-                    Embedded Linux,
-                    and Power Electronics.
-
-                </p>
-
-                <h2 class="hero-title">
-
-                    Shubhendu Bikash Banerjee
-
-                </h2>
-
-                <a href="#projects" class="primary-button">
-
-                    Explore Work
-
-                </a>
-
-            </div>
-
-            <div class="profile-card">
-
-                <div class="avatar">
-
-                    SB
-
-                </div>
-
-                <p>
-
-                    6+ Years Experience
-
-                </p>
-
-                <p>
-
-                    STM32 • ESP32 • BLE • USB
-
-                </p>
-
-            </div>
-
-        </div>
-
     </header>
 
-    <section id="about" class="section">
-
-        <h2>
-
-            About
-
-        </h2>
-
-        <p>
-
-            Embedded systems developer building
-            firmware, communication stacks,
-            USB systems, BLE products,
-            and Linux-based embedded solutions.
-
-        </p>
-
-    </section>
-
-    <section id="skills" class="section">
-
-        <h2>
-
-            Skills
-
-        </h2>
-
-        <div id="skillsContainer" class="skills-grid">
-
-        </div>
-
-    </section>
-
-    <section id="projects" class="section">
-
-        <h2>
-
-            Projects
-
-        </h2>
-
-        <div class="project-grid">
-
-            <div class="project-card">
-
-                USB CDC + UVC Firmware
-
+    <main class="page-body">
+        <section class="hero">
+            <div class="hero-content">
+                <div>
+                    <div class="typing-console">
+                        <span class="prompt">&gt;</span>
+                        <span id="typingText"></span>
+                        <span class="caret"></span>
+                    </div>
+                    <p class="hero-intro">
+                        Firmware engineer focused on embedded systems, USB, BLE,
+                        Embedded Linux, and power electronics.
+                    </p>
+                    <h1 class="hero-title">Shubhendu Bikash Banerjee</h1>
+                    <a href="#projects" class="primary-button">Explore Work</a>
+                </div>
+                <aside class="profile-card" aria-label="Professional overview">
+                    <div class="avatar">SB</div>
+                    <p>6+ Years Experience</p>
+                    <p>STM32 &bull; ESP32 &bull; BLE &bull; USB</p>
+                </aside>
             </div>
+        </section>
 
-            <div class="project-card">
-
-                BLE Streaming Platform
-
-            </div>
-
-            <div class="project-card">
-
-                Embedded Linux Learning
-
-            </div>
-
-            <div class="project-card">
-
-                Grid Connected Inverter Research
-
-            </div>
-
-        </div>
-
-    </section>
-
-        </main>
-
-    <footer id="contact" class="site-footer">
-
-        <div class="footer-inner">
-
-            <p>
-
-                GitHub • LinkedIn • Email
-
+        <section id="about" class="section">
+            <p class="eyebrow">Profile</p>
+            <h2>About</h2>
+            <p class="section-copy">
+                Embedded systems developer building firmware, communication stacks,
+                USB systems, BLE products, and Linux-based embedded solutions.
             </p>
+        </section>
 
+        <section id="skills" class="section">
+            <p class="eyebrow">Toolbox</p>
+            <h2>Skills</h2>
+            <div id="skillsContainer" class="skills-grid"></div>
+        </section>
+
+        <section id="projects" class="section">
+            <p class="eyebrow">Portfolio</p>
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <article class="project-card">USB CDC + UVC Firmware</article>
+                <article class="project-card">BLE Streaming Platform</article>
+                <article class="project-card">Embedded Linux Learning</article>
+                <article class="project-card">Grid Connected Inverter Research</article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner container">
+            <p>&copy; Shubhendu Bikash Banerjee</p>
+            <nav class="footer-links" aria-label="Footer navigation">
+                <a href="who-am-i.html">About</a>
+                <a href="what-do-i-do.html">Work</a>
+                <a href="where-am-i.html">Contact</a>
+            </nav>
         </div>
-
     </footer>
-
-    <script src="scripts/index.js">
-
-    </script>
-
+    <script src="scripts/template.js"></script>
+    <script src="scripts/index.js"></script>
 </body>
-
 </html>
