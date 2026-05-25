@@ -3,7 +3,6 @@ const roles = [
     "Firmware Engineer",
     "BLE Systems Developer",
     "USB Firmware Engineer",
-    "Embedded Linux Learner",
     "Power Systems Researcher"
 ];
 
@@ -23,8 +22,6 @@ const skills = [
     "I2C",
     "SPI",
     "Modbus",
-    "Yocto",
-    "Embedded Linux",
     "STM32MP1",
     "Bootloaders",
     "KiCad",
