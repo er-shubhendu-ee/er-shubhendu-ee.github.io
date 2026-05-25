@@ -155,6 +155,48 @@ function animateTyping() {
 
 animateTyping();
 
+const profileCard = document.querySelector(
+
+    ".profile-card"
+
+);
+
+const typingConsoleElement = document.querySelector(
+
+    ".typing-console"
+
+);
+
+function syncTypingConsoleHeight() {
+
+    if (!profileCard || !typingConsoleElement) {
+
+        return;
+
+    }
+
+    typingConsoleElement.style.height =
+
+        `${profileCard.offsetHeight}px`;
+
+}
+
+window.addEventListener(
+
+    "load",
+
+    syncTypingConsoleHeight
+
+);
+
+window.addEventListener(
+
+    "resize",
+
+    syncTypingConsoleHeight
+
+);
+
 const skillsContainer =
 
     document
