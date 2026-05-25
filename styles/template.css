@@ -1,0 +1,279 @@
+:root {
+
+    --bg: #07111f;
+
+    --card: #132236;
+
+    --primary: #38bdf8;
+
+    --secondary: #94a3b8;
+
+    --text: #e2e8f0;
+
+    --border: #22324a;
+
+    --shadow:
+        0px 10px 30px rgba(0, 0, 0, 0.25);
+
+}
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+body {
+
+    background:
+        linear-gradient(135deg,
+            #020617,
+            #07111f);
+
+    color: var(--text);
+
+    font-family:
+
+        "Segoe UI",
+        sans-serif;
+
+    line-height: 1.6;
+
+}
+
+a {
+
+    text-decoration: none;
+
+    color: inherit;
+
+}
+
+ul {
+
+    list-style: none;
+
+}
+
+.section {
+
+    width: min(1200px, 92%);
+
+    margin: auto;
+
+    padding:
+
+        80px 0;
+
+}
+
+.section h2 {
+
+    color:
+
+        var(--primary);
+
+    margin-bottom:
+
+        30px;
+
+    font-size:
+
+        2rem;
+
+}
+
+.navbar {
+
+    width: min(1200px, 92%);
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    padding:
+
+        25px 0;
+
+}
+
+.logo {
+
+    font-size:
+
+        1.4rem;
+
+    font-weight:
+
+        bold;
+
+    color:
+
+        var(--primary);
+
+}
+
+.nav-links {
+
+    display: flex;
+
+    gap: 30px;
+
+}
+
+.nav-links a {
+
+    color:
+
+        var(--secondary);
+
+    transition:
+
+        0.3s;
+
+}
+
+.nav-links a:hover {
+
+    color:
+
+        var(--primary);
+
+}
+
+.menu-button {
+
+    display: none;
+
+    background: none;
+
+    border: none;
+
+    color: white;
+
+    font-size: 1.5rem;
+
+    cursor: pointer;
+
+}
+
+.primary-button {
+
+    display: inline-block;
+
+    margin-top: 25px;
+
+    background:
+
+        var(--primary);
+
+    color: black;
+
+    padding:
+
+        14px 24px;
+
+    border-radius:
+
+        12px;
+
+    font-weight: bold;
+
+    transition:
+
+        .3s;
+
+}
+
+.primary-button:hover {
+
+    transform:
+
+        translateY(-3px);
+
+}
+
+.card {
+
+    background:
+
+        var(--card);
+
+    border:
+
+        1px solid var(--border);
+
+    border-radius:
+
+        18px;
+
+    box-shadow:
+
+        var(--shadow);
+
+}
+
+@media(max-width:800px) {
+
+    .nav-links {
+
+        display: none;
+
+        position: absolute;
+
+        top: 75px;
+
+        right: 20px;
+
+        background:
+
+            var(--card);
+
+        padding:
+
+            20px;
+
+        border-radius:
+
+            12px;
+
+        flex-direction:
+
+            column;
+
+        width: 200px;
+
+        border:
+
+            1px solid var(--border);
+
+    }
+
+    .nav-links.active {
+
+        display: flex;
+
+    }
+
+    .menu-button {
+
+        display: block;
+
+    }
+
+}
