@@ -33,32 +33,22 @@ const skills = [
 ];
 
 const typingText = document.getElementById("typingText");
-let roleIndex = 0;
+const roleListing = roles.join(", ");
 let charIndex = 0;
-let deleting = false;
 
 function animateTyping() {
     if (!typingText) {
         return;
     }
 
-    const current = roles[roleIndex];
-    typingText.textContent = current.slice(0, charIndex);
+    typingText.textContent = roleListing.slice(0, charIndex);
 
-    if (!deleting && charIndex < current.length) {
+    if (charIndex < roleListing.length) {
         charIndex += 1;
-    } else if (!deleting) {
-        deleting = true;
-        window.setTimeout(animateTyping, 1500);
+        window.setTimeout(animateTyping, 55);
         return;
-    } else if (charIndex > 0) {
-        charIndex -= 1;
-    } else {
-        deleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
     }
 
-    window.setTimeout(animateTyping, deleting ? 40 : 90);
 }
 
 animateTyping();

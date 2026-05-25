@@ -7,7 +7,7 @@
 }
 
 .hero-content {
-    align-items: center;
+    align-items: start;
     display: grid;
     gap: clamp(36px, 6vw, 60px);
     grid-template-columns: minmax(0, 1fr) 320px;
@@ -38,7 +38,7 @@
 }
 
 .typing-console {
-    align-items: center;
+    align-items: flex-start;
     background: #132236;
     border: 1px solid #22324a;
     border-radius: 16px;
@@ -55,13 +55,24 @@
 
 .prompt {
     flex-shrink: 0;
+    line-height: 1.35;
+}
+
+.typing-line {
+    display: inline;
+    line-height: 1.35;
+    min-width: 0;
+    white-space: normal;
 }
 
 .caret {
     animation: blink .8s infinite;
     background: var(--console-text);
-    height: 1.2rem;
-    width: 10px;
+    display: inline-block;
+    height: 1.05rem;
+    margin-left: 3px;
+    vertical-align: -.15rem;
+    width: 8px;
 }
 
 @keyframes blink {
