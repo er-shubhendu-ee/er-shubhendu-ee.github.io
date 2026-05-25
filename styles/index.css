@@ -1,10 +1,12 @@
 .hero {
 
-    min-height: 100vh;
+    min-height:
+
+        calc(100vh - var(--navbar-height));
 
     display: flex;
 
-    flex-direction: column;
+    align-items: center;
 
 }
 
@@ -14,19 +16,15 @@
 
     margin: auto;
 
-    flex: 1;
-
     display: grid;
 
     grid-template-columns:
 
-        1fr 320px;
-
-    align-items: start;
-
-    justify-items: start;
+        minmax(0, 1fr) 320px;
 
     gap: 60px;
+
+    align-items: center;
 
 }
 
@@ -36,44 +34,21 @@
 
     flex-direction: column;
 
-    align-items: flex-start;
+    gap: 18px;
 
 }
 
-.hero-content h1 {
-
-    font-size:
-
-        clamp(1.8rem,
-            4vw,
-            3rem);
-
-    margin-bottom:
-
-        15px;
-
-}
-
-.hero-content h2,
 .hero-title {
 
     color:
 
         var(--primary);
 
-    margin-bottom:
-
-        25px;
-
-    min-height:
-
-        40px;
-
     font-size:
 
-        clamp(2.2rem,
+        clamp(2.4rem,
             5vw,
-            3.6rem);
+            4rem);
 
     line-height:
 
@@ -89,35 +64,21 @@
 
     max-width:
 
-        650px;
+        700px;
 
-    margin-bottom:
+    font-size:
 
-        18px;
+        1.05rem;
 
 }
 
 .typing-console {
 
-    display:
+    display: flex;
 
-        inline-flex;
+    align-items: center;
 
-    align-items:
-
-        center;
-
-    gap:
-
-        0.5rem;
-
-    padding:
-
-        24px 20px;
-
-    border-radius:
-
-        16px;
+    gap: 12px;
 
     background:
 
@@ -127,53 +88,70 @@
 
         1px solid var(--border);
 
+    border-radius:
+
+        16px;
+
+    padding:
+
+        22px;
+
+    max-width:
+
+        700px;
+
+    width: 100%;
+
+    font-family:
+
+        Consolas,
+        monospace;
+
     color:
 
         var(--primary);
 
-    font-family:
-
-        "SFMono-Regular",
-        Consolas,
-        "Liberation Mono",
-        Menlo,
-        monospace;
-
-    font-size:
-
-        1.05rem;
-
-    box-sizing:
-
-        border-box;
-
-    white-space:
-
-        pre;
-
-    margin-bottom:
-
-        30px;
-
-    width:
-
-        100%;
-
-    max-width:
-
-        650px;
-
-    align-items:
-
-        flex-start;
+    overflow: hidden;
 
 }
 
-.hero-console {
+.prompt {
 
-    margin:
+    flex-shrink: 0;
 
-        0 0 20px 0;
+}
+
+.caret {
+
+    width: 10px;
+
+    height: 1.2rem;
+
+    background:
+
+        var(--primary);
+
+    animation:
+
+        blink .8s infinite;
+
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+
+        opacity: 1;
+
+    }
+
+    51%,
+    100% {
+
+        opacity: 0;
+
+    }
 
 }
 
@@ -191,41 +169,27 @@
 
         20px;
 
-    padding:
+    padding: 35px;
 
-        35px;
-
-    text-align:
-
-        center;
+    text-align: center;
 
     box-shadow:
 
         var(--shadow);
 
-    width:
-
-        min(100%, 350px);
-
-    box-sizing:
-
-        border-box;
-
 }
 
 .avatar {
 
-    width:
+    width: 120px;
 
-        120px;
+    height: 120px;
 
-    height:
+    margin: auto;
 
-        120px;
+    margin-bottom: 20px;
 
-    border-radius:
-
-        50%;
+    border-radius: 50%;
 
     background:
 
@@ -233,53 +197,35 @@
             #38bdf8,
             #0ea5e9);
 
-    display:
+    display: flex;
 
-        flex;
+    align-items: center;
 
-    align-items:
-
-        center;
-
-    justify-content:
-
-        center;
+    justify-content: center;
 
     font-size:
 
         2rem;
 
-    font-weight:
-
-        bold;
-
-    margin:
-
-        auto;
-
-    margin-bottom:
-
-        20px;
+    font-weight: bold;
 
 }
 
 .skills-grid {
 
-    display:
+    display: flex;
 
-        flex;
+    flex-wrap: wrap;
 
-    flex-wrap:
-
-        wrap;
-
-    gap:
-
-        12px;
+    gap: 12px;
 
 }
 
 .skill {
+
+    padding:
+
+        10px 18px;
 
     background:
 
@@ -289,21 +235,15 @@
 
         1px solid var(--border);
 
-    color:
-
-        var(--primary);
-
-    padding:
-
-        10px 16px;
-
     border-radius:
 
         999px;
 
-    transition:
+    color:
 
-        .3s;
+        var(--primary);
+
+    transition: .25s;
 
 }
 
@@ -311,7 +251,7 @@
 
     transform:
 
-        translateY(-4px);
+        translateY(-3px);
 
     border-color:
 
@@ -326,10 +266,10 @@
     grid-template-columns:
 
         repeat(auto-fit,
-            minmax(250px,
+            minmax(260px,
                 1fr));
 
-    gap: 25px;
+    gap: 24px;
 
 }
 
@@ -343,35 +283,37 @@
 
         1px solid var(--border);
 
-    padding:
-
-        30px;
-
     border-radius:
 
         18px;
 
-    transition:
+    padding: 32px;
 
-        .3s;
-
-    cursor: pointer;
+    transition: .3s;
 
 }
 
 .project-card:hover {
 
-    transform:
-
-        translateY(-8px);
-
     border-color:
 
         var(--primary);
 
+    transform:
+
+        translateY(-5px);
+
 }
 
 @media(max-width:900px) {
+
+    .hero {
+
+        padding:
+
+            60px 0;
+
+    }
 
     .hero-content {
 
@@ -385,60 +327,17 @@
 
     .hero-content>div:first-child {
 
-        width:
-
-            100%;
-
-    }
-
-    .hero-content p,
-    .hero-content h1,
-    .typing-console,
-    .primary-button {
-
-        margin-left:
-
-            auto;
-
-        margin-right:
-
-            auto;
-
-    }
-
-    .typing-console {
-
-        display:
-
-            flex;
-
-        flex-wrap:
-
-            wrap;
-
-        justify-content:
-
-            center;
-
-    }
-
-    .hero-content p {
-
-        margin:
-
-            auto;
+        align-items: center;
 
     }
 
     .profile-card {
 
-        max-width:
+        max-width: 360px;
 
-            350px;
+        width: 100%;
 
-        margin:
-
-            auto;
+        margin: auto;
 
     }
 
@@ -446,11 +345,11 @@
 
 @media(max-width:600px) {
 
-    .hero-content {
+    .hero-title {
 
-        padding:
+        font-size:
 
-            40px 0;
+            2.2rem;
 
     }
 
@@ -458,31 +357,19 @@
 
         font-size:
 
-            1rem;
+            0.9rem;
 
         padding:
 
-            16px 18px;
-
-        justify-content:
-
-            flex-start;
+            18px;
 
     }
 
-    .typing-console .prompt {
+    .profile-card {
 
-        margin-bottom:
+        padding:
 
-            4px;
-
-    }
-
-    .project-grid {
-
-        grid-template-columns:
-
-            1fr;
+            28px;
 
     }
 
