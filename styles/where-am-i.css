@@ -1,0 +1,9 @@
+.contact-card {
+    grid-column: span 2;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}

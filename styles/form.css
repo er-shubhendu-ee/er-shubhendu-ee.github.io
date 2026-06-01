@@ -1,0 +1,59 @@
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.contact-form label {
+    font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.3rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font: inherit;
+}
+
+.contact-form textarea {
+    min-height: 1.5rem;
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--bright-blue);
+}
+
+.contact-form .primary-button {
+    align-self: flex-start;
+}
+
+.error-text {
+    color: #c62828;
+    font-size: 0.85rem;
+    min-height: 1rem;
+}
+
+.form-status {
+    min-height: 1.25rem;
+    font-weight: 600;
+}
+
+.form-status.success {
+    color: #2e7d32;
+}
+
+.form-status.error {
+    color: #c62828;
+}

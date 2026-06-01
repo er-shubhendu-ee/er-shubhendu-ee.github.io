@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Where I Am | Shubhendu Banerjee</title>
     <link rel="stylesheet" href="styles/template.css">
     <link rel="stylesheet" href="styles/where-am-i.css">
+    <link rel="stylesheet" href="styles/template.css">
+    <link rel="stylesheet" href="styles/form.css">
 </head>
+
 <body>
     <header class="site-header">
         <nav class="navbar container" aria-label="Primary navigation">
             <a class="logo" href="index.html" data-route="home" aria-label="Shubhendu Banerjee home">BSB</a>
-            <button class="menu-button" type="button" aria-label="Open navigation menu"
-                aria-controls="primaryMenu" aria-expanded="false">
+            <button class="menu-button" type="button" aria-label="Open navigation menu" aria-controls="primaryMenu"
+                aria-expanded="false">
                 &#9776;
             </button>
             <ul id="primaryMenu" class="nav-links">
@@ -20,41 +24,95 @@
                 <li><a href="who-am-i.html" data-route="about">Who I Am</a></li>
                 <li><a href="what-do-i-do.html" data-route="work">What I Do</a></li>
                 <li><a href="clientele.html" data-route="clientele">Clientele</a></li>
-                <li><a class="active" aria-current="page" href="where-am-i.html" data-route="contact">Where I Am</a></li>
+                <li><a class="active" aria-current="page" href="where-am-i.html" data-route="contact">Where I Am</a>
+                </li>
             </ul>
         </nav>
     </header>
 
     <main class="page-body">
         <section class="page-hero container">
-            <p class="eyebrow">Where I Am</p>
-            <h1>Connect With Me</h1>
+            <p class="eyebrow">Contact</p>
+            <h1>Get In Touch</h1>
             <p class="page-lead">
-                A simple contact page skeleton for your location, availability,
-                professional profiles, and direct contact details.
+                Open to opportunities in embedded systems, firmware development,
+                electronics design, and technical consulting. Let's discuss your
+                project, product, or research requirements.
             </p>
         </section>
+
         <section class="page-grid container" aria-label="Contact page sections">
-            <article class="content-card featured-card">
+
+            <article class="content-card contact-card">
                 <p class="eyebrow">Contact</p>
                 <h2>Start a Conversation</h2>
+
                 <p>
-                    Replace this content with an email address, contact form, or a
-                    short note about opportunities and collaborations.
+                    Looking for support with embedded systems, firmware development,
+                    electronics design, or technical consulting? Send a message below.
                 </p>
+
+                <form id="contactForm" class="contact-form" action="https://formspree.io/f/xqejvlod" method="POST">
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="youremail@domain.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Embedded Firmware Development"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message"
+                            placeholder="Briefly describe your project, requirements, or inquiry." required></textarea>
+                    </div>
+
+                    <div id="formStatus" class="form-status"></div>
+
+                    <button type="submit" class="primary-button">
+                        Send Message
+                    </button>
+
+                </form>
+
             </article>
-            <article class="content-card">
-                <h2>Location</h2>
-                <p>Add your city, timezone, or remote-working availability.</p>
-            </article>
-            <article class="content-card">
-                <h2>Profiles</h2>
-                <p>Link to GitHub, LinkedIn, publications, or other professional channels.</p>
-            </article>
-            <article class="content-card">
-                <h2>Availability</h2>
-                <p>State the kinds of work, discussions, or collaborations you welcome.</p>
-            </article>
+
+            <div class="contact-info">
+                <article class="content-card">
+                    <h2>Location</h2>
+                    <p>
+                        Howrah, West Bengal, India<br>
+                        Available for remote collaborations and consulting engagements.
+                    </p>
+                </article>
+
+                <article class="content-card">
+                    <h2>Profiles</h2>
+                    <p>
+                        GitHub<br>
+                        LinkedIn<br>
+                        Research & Technical Publications
+                    </p>
+                </article>
+
+                <article class="content-card">
+                    <h2>Availability</h2>
+                    <p>
+                        Embedded Firmware • Electronics Development • Industrial Communication •
+                        BLE & Wireless Systems • USB Development • Technical Consulting
+                    </p>
+                </article>
+            </div>
+
         </section>
     </main>
 
@@ -72,5 +130,7 @@
     <script src="scripts/routes.js"></script>
     <script src="scripts/template.js"></script>
     <script src="scripts/where-am-i.js"></script>
+    <script src="scripts/form.js"></script>
 </body>
+
 </html>
