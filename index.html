@@ -21,6 +21,7 @@
                 <li><a class="active" aria-current="page" href="index.html">Home</a></li>
                 <li><a href="who-am-i.html">Who I Am</a></li>
                 <li><a href="what-do-i-do.html">What I Do</a></li>
+                <li><a href="clientele.html">Clientele</a></li>
                 <li><a href="where-am-i.html">Where I Am</a></li>
             </ul>
         </nav>
@@ -30,6 +31,19 @@
         <section class="hero">
             <div class="hero-content">
                 <div>
+                    <section class="project-carousel" aria-label="Featured projects">
+                        <button class="carousel-nav" type="button" data-project-direction="-1"
+                            aria-label="Previous project">
+                            &#8249;
+                        </button>
+                        <div class="carousel-viewport">
+                            <div id="projectTrack" class="carousel-track"></div>
+                        </div>
+                        <button class="carousel-nav" type="button" data-project-direction="1"
+                            aria-label="Next project">
+                            &#8250;
+                        </button>
+                    </section>
                     <div class="typing-console">
                         <span class="prompt">&gt;</span>
                         <span class="typing-line">
@@ -45,11 +59,25 @@
                         <a href="#projects" class="primary-button">Explore Work</a>
                     </div>
                 </div>
-                <aside class="profile-card" aria-label="Professional overview">
-                    <div class="avatar">BSB</div>
-                    <p>10+ Years Experience</p>
-                    <p>KiCad&bull; STM32 &bull; ESP32 &bull; BLE &bull; USB</p>
-                </aside>
+                <div class="hero-side">
+                    <section class="client-carousel" aria-label="Clients">
+                        <button class="carousel-nav" type="button" data-client-direction="-1"
+                            aria-label="Previous client">
+                            &#8249;
+                        </button>
+                        <div class="carousel-viewport">
+                            <div id="clientTrack" class="carousel-track"></div>
+                        </div>
+                        <button class="carousel-nav" type="button" data-client-direction="1" aria-label="Next client">
+                            &#8250;
+                        </button>
+                    </section>
+                    <aside class="profile-card" aria-label="Professional overview">
+                        <div class="avatar">BSB</div>
+                        <p>10+ Years Experience</p>
+                        <p>KiCad&bull; STM32 &bull; ESP32 &bull; BLE &bull; USB</p>
+                    </aside>
+                </div>
             </div>
         </section>
 
@@ -72,9 +100,9 @@
             <p class="eyebrow">Portfolio</p>
             <h2>Projects</h2>
             <div class="project-grid">
-                <article class="project-card">USB CDC + UVC Firmware</article>
-                <article class="project-card">BLE Streaming Platform</article>
-                <article class="project-card">Grid Connected Inverter Research</article>
+                <a class="project-card" href="what-do-i-do.html#usb-cdc-uvc">USB CDC + UVC Firmware</a>
+                <a class="project-card" href="what-do-i-do.html#ble-streaming">BLE Streaming Platform</a>
+                <a class="project-card" href="what-do-i-do.html#grid-inverter">Grid Connected Inverter Research</a>
             </div>
         </section>
     </main>
@@ -85,6 +113,7 @@
             <nav class="footer-links" aria-label="Footer navigation">
                 <a href="who-am-i.html">About</a>
                 <a href="what-do-i-do.html">Work</a>
+                <a href="clientele.html">Clientele</a>
                 <a href="where-am-i.html">Contact</a>
             </nav>
         </div>

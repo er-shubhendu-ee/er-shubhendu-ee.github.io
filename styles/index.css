@@ -3,7 +3,7 @@
     display: flex;
     min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
     min-height: calc(100svh - var(--navbar-height) - var(--footer-height));
-    padding: clamp(50px, 8vw, 72px) 0;
+    padding: 2em 0 clamp(50px, 8vw, 72px);
 }
 
 .hero-content {
@@ -21,6 +21,132 @@
     flex-direction: column;
     gap: 18px;
     min-width: 0;
+}
+
+.hero-side {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-width: 0;
+}
+
+.client-carousel,
+.project-carousel {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    height: 78px;
+    min-width: 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.project-carousel {
+    max-width: 700px;
+}
+
+.carousel-nav {
+    align-items: center;
+    background: var(--accent);
+    border: 0;
+    border-radius: 50%;
+    color: var(--text);
+    cursor: pointer;
+    display: inline-flex;
+    flex: 0 0 34px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    height: 34px;
+    justify-content: center;
+    line-height: 1;
+    padding: 0 0 3px;
+    transition: box-shadow .2s ease, transform .2s ease;
+    width: 34px;
+}
+
+.carousel-nav:hover {
+    box-shadow: 0 8px 18px rgba(253, 184, 19, .32);
+    transform: translateY(-2px);
+}
+
+.carousel-viewport {
+    flex: 1;
+    height: 100%;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 12px;
+    height: 100%;
+    transition: transform .45s ease;
+    will-change: transform;
+}
+
+.client-card,
+.project-slide-card {
+    align-items: center;
+    background: rgba(255, 255, 255, .72);
+    border: 1px solid rgba(0, 107, 255, .18);
+    border-radius: 8px;
+    box-shadow: 0 7px 16px rgba(91, 73, 28, .08);
+    display: flex;
+    flex: 0 0 clamp(132px, 22vw, 160px);
+    gap: 10px;
+    height: 100%;
+    padding: 10px 12px;
+}
+
+.project-slide-card {
+    align-items: flex-start;
+    color: var(--text);
+    flex: 0 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 380px;
+    min-width: max-content;
+    overflow: hidden;
+}
+
+.client-logo {
+    align-items: center;
+    background: #006BFF;
+    border-radius: 8px;
+    color: #fff;
+    display: inline-flex;
+    flex: 0 0 36px;
+    font-size: .8rem;
+    font-weight: 700;
+    height: 36px;
+    justify-content: center;
+    width: 36px;
+}
+
+.client-name,
+.project-slide-title {
+    color: var(--text);
+    font-size: .9rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.project-slide-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.project-slide-meta {
+    color: var(--secondary);
+    font-size: .76rem;
+    line-height: 1.3;
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
 }
 
 .hero-title-row {
@@ -217,6 +343,12 @@
         align-items: center;
     }
 
+    .hero-side {
+        margin: auto;
+        max-width: 360px;
+        width: 100%;
+    }
+
     .profile-card {
         margin: auto;
         max-width: 360px;
@@ -225,6 +357,41 @@
 }
 
 @media (max-width: 600px) {
+    .client-carousel,
+    .project-carousel {
+        gap: 8px;
+        height: 64px;
+    }
+
+    .carousel-nav {
+        flex-basis: 30px;
+        height: 30px;
+        width: 30px;
+    }
+
+    .client-card {
+        flex-basis: 128px;
+        height: 64px;
+        padding: 8px 10px;
+    }
+
+    .project-slide-card {
+        max-width: 280px;
+        height: 64px;
+        padding: 8px 10px;
+    }
+
+    .client-logo {
+        flex-basis: 32px;
+        height: 32px;
+        width: 32px;
+    }
+
+    .client-name,
+    .project-slide-title {
+        font-size: .78rem;
+    }
+
     .hero-title {
         font-size: min(clamp(.65rem, 3vw, .95rem), var(--hero-title-fit-size, .95rem));
     }
