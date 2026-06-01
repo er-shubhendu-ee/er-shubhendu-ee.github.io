@@ -14,8 +14,15 @@
     display: flex;
     gap: 24px;
     justify-content: space-between;
-    scroll-margin-top: calc(var(--navbar-height) + 24px);
+    scroll-margin-top: calc(var(--navbar-height) + 8px);
     padding: clamp(24px, 4vw, 34px);
+}
+
+.work-section:target {
+    background: #fffdf0;
+    border-color: var(--bright-blue);
+    border-left-color: var(--bright-blue);
+    box-shadow: 0 0 0 3px rgba(0, 107, 255, .16), 0 18px 34px rgba(0, 76, 141, .18);
 }
 
 .work-section h2 {

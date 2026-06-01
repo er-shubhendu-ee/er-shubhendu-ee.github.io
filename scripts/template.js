@@ -28,3 +28,26 @@ if (menuButton && navLinks) {
         }
     });
 }
+
+function scrollHashTargetIntoView() {
+    const targetId = window.location.hash.slice(1);
+
+    if (!targetId) {
+        return;
+    }
+
+    const target = document.getElementById(targetId);
+
+    if (!target) {
+        return;
+    }
+
+    window.setTimeout(() => {
+        target.scrollIntoView({
+            block: "start"
+        });
+    }, 0);
+}
+
+window.addEventListener("load", scrollHashTargetIntoView);
+window.addEventListener("hashchange", scrollHashTargetIntoView);

@@ -16,8 +16,15 @@
     gap: 14px;
     min-height: 92px;
     padding: 18px;
-    scroll-margin-top: calc(var(--navbar-height) + 24px);
+    scroll-margin-top: calc(var(--navbar-height) + 8px);
     transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.clientele-card:target {
+    background: #fffdf0;
+    border-color: var(--bright-blue);
+    border-top-color: var(--bright-blue);
+    box-shadow: 0 0 0 3px rgba(0, 107, 255, .16), 0 18px 34px rgba(0, 76, 141, .18);
 }
 
 .clientele-card:hover {
