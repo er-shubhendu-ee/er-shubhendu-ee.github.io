@@ -10,17 +10,17 @@
 <body>
     <header class="site-header">
         <nav class="navbar container" aria-label="Primary navigation">
-            <a class="logo" href="index.html" aria-label="Shubhendu Banerjee home">BSB</a>
+            <a class="logo" href="index.html" data-route="home" aria-label="Shubhendu Banerjee home">BSB</a>
             <button class="menu-button" type="button" aria-label="Open navigation menu"
                 aria-controls="primaryMenu" aria-expanded="false">
                 &#9776;
             </button>
             <ul id="primaryMenu" class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="who-am-i.html">Who I Am</a></li>
-                <li><a class="active" aria-current="page" href="what-do-i-do.html">What I Do</a></li>
-                <li><a href="clientele.html">Clientele</a></li>
-                <li><a href="where-am-i.html">Where I Am</a></li>
+                <li><a href="index.html" data-route="home">Home</a></li>
+                <li><a href="who-am-i.html" data-route="about">Who I Am</a></li>
+                <li><a class="active" aria-current="page" href="what-do-i-do.html" data-route="work">What I Do</a></li>
+                <li><a href="clientele.html" data-route="clientele">Clientele</a></li>
+                <li><a href="where-am-i.html" data-route="contact">Where I Am</a></li>
             </ul>
         </nav>
     </header>
@@ -67,7 +67,7 @@
                         embedded debugging.
                     </p>
                 </div>
-                <a class="work-more" href="project-usb-cdc-uvc.html">More</a>
+                <a class="work-more" href="project-pages/usb-cdc-uvc.html" data-project-route="usbCdcUvc">More</a>
             </article>
             <article id="ble-streaming" class="work-section">
                 <div>
@@ -78,7 +78,7 @@
                         state, connection behavior, throughput tuning, and application integration.
                     </p>
                 </div>
-                <a class="work-more" href="project-ble-streaming.html">More</a>
+                <a class="work-more" href="project-pages/ble-streaming.html" data-project-route="bleStreaming">More</a>
             </article>
             <article id="grid-inverter" class="work-section">
                 <div>
@@ -90,7 +90,7 @@
                         conversion systems.
                     </p>
                 </div>
-                <a class="work-more" href="project-grid-inverter.html">More</a>
+                <a class="work-more" href="project-pages/grid-inverter.html" data-project-route="gridInverter">More</a>
             </article>
         </section>
     </main>
@@ -99,13 +99,14 @@
         <div class="footer-inner container">
             <p>&copy; Shubhendu Bikash Banerjee</p>
             <nav class="footer-links" aria-label="Footer navigation">
-                <a href="who-am-i.html">About</a>
-                <a href="what-do-i-do.html">Work</a>
-                <a href="clientele.html">Clientele</a>
-                <a href="where-am-i.html">Contact</a>
+                <a href="who-am-i.html" data-route="about">About</a>
+                <a href="what-do-i-do.html" data-route="work">Work</a>
+                <a href="clientele.html" data-route="clientele">Clientele</a>
+                <a href="where-am-i.html" data-route="contact">Contact</a>
             </nav>
         </div>
     </footer>
+    <script src="scripts/routes.js"></script>
     <script src="scripts/template.js"></script>
     <script src="scripts/what-do-i-do.js"></script>
 </body>

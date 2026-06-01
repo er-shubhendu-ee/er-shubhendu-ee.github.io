@@ -12,17 +12,17 @@
 <body>
     <header class="site-header">
         <nav class="navbar container" aria-label="Primary navigation">
-            <a class="logo" href="index.html" aria-label="Shubhendu Banerjee home">BSB</a>
+            <a class="logo" href="index.html" data-route="home" aria-label="Shubhendu Banerjee home">BSB</a>
             <button class="menu-button" type="button" aria-label="Open navigation menu" aria-controls="primaryMenu"
                 aria-expanded="false">
                 &#9776;
             </button>
             <ul id="primaryMenu" class="nav-links">
-                <li><a class="active" aria-current="page" href="index.html">Home</a></li>
-                <li><a href="who-am-i.html">Who I Am</a></li>
-                <li><a href="what-do-i-do.html">What I Do</a></li>
-                <li><a href="clientele.html">Clientele</a></li>
-                <li><a href="where-am-i.html">Where I Am</a></li>
+                <li><a class="active" aria-current="page" href="index.html" data-route="home">Home</a></li>
+                <li><a href="who-am-i.html" data-route="about">Who I Am</a></li>
+                <li><a href="what-do-i-do.html" data-route="work">What I Do</a></li>
+                <li><a href="clientele.html" data-route="clientele">Clientele</a></li>
+                <li><a href="where-am-i.html" data-route="contact">Where I Am</a></li>
             </ul>
         </nav>
     </header>
@@ -31,15 +31,15 @@
         <section class="hero">
             <div class="hero-content">
                 <div>
-                    <section class="project-carousel" aria-label="Featured projects">
-                        <button class="carousel-nav" type="button" data-project-direction="-1"
+                    <section class="carousel project-carousel" aria-label="Featured projects">
+                        <button class="carousel-nav" type="button" data-carousel-direction="-1"
                             aria-label="Previous project">
                             &#8249;
                         </button>
                         <div class="carousel-viewport">
                             <div id="projectTrack" class="carousel-track"></div>
                         </div>
-                        <button class="carousel-nav" type="button" data-project-direction="1"
+                        <button class="carousel-nav" type="button" data-carousel-direction="1"
                             aria-label="Next project">
                             &#8250;
                         </button>
@@ -60,15 +60,15 @@
                     </div>
                 </div>
                 <div class="hero-side">
-                    <section class="client-carousel" aria-label="Clients">
-                        <button class="carousel-nav" type="button" data-client-direction="-1"
+                    <section class="carousel client-carousel" aria-label="Clients">
+                        <button class="carousel-nav" type="button" data-carousel-direction="-1"
                             aria-label="Previous client">
                             &#8249;
                         </button>
                         <div class="carousel-viewport">
                             <div id="clientTrack" class="carousel-track"></div>
                         </div>
-                        <button class="carousel-nav" type="button" data-client-direction="1" aria-label="Next client">
+                        <button class="carousel-nav" type="button" data-carousel-direction="1" aria-label="Next client">
                             &#8250;
                         </button>
                     </section>
@@ -100,9 +100,9 @@
             <p class="eyebrow">Portfolio</p>
             <h2>Projects</h2>
             <div class="project-grid">
-                <a class="project-card" href="what-do-i-do.html#usb-cdc-uvc">USB CDC + UVC Firmware</a>
-                <a class="project-card" href="what-do-i-do.html#ble-streaming">BLE Streaming Platform</a>
-                <a class="project-card" href="what-do-i-do.html#grid-inverter">Grid Connected Inverter Research</a>
+                <a class="project-card" href="what-do-i-do.html#usb-cdc-uvc" data-work-section-route="usbCdcUvc">USB CDC + UVC Firmware</a>
+                <a class="project-card" href="what-do-i-do.html#ble-streaming" data-work-section-route="bleStreaming">BLE Streaming Platform</a>
+                <a class="project-card" href="what-do-i-do.html#grid-inverter" data-work-section-route="gridInverter">Grid Connected Inverter Research</a>
             </div>
         </section>
     </main>
@@ -111,13 +111,14 @@
         <div class="footer-inner container">
             <p>&copy; Shubhendu Bikash Banerjee</p>
             <nav class="footer-links" aria-label="Footer navigation">
-                <a href="who-am-i.html">About</a>
-                <a href="what-do-i-do.html">Work</a>
-                <a href="clientele.html">Clientele</a>
-                <a href="where-am-i.html">Contact</a>
+                <a href="who-am-i.html" data-route="about">About</a>
+                <a href="what-do-i-do.html" data-route="work">Work</a>
+                <a href="clientele.html" data-route="clientele">Clientele</a>
+                <a href="where-am-i.html" data-route="contact">Contact</a>
             </nav>
         </div>
     </footer>
+    <script src="scripts/routes.js"></script>
     <script src="scripts/template.js"></script>
     <script src="scripts/index.js"></script>
 </body>

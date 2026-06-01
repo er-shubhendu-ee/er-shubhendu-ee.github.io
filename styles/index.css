@@ -31,58 +31,8 @@
     min-width: 0;
 }
 
-.client-carousel,
-.project-carousel {
-    align-items: center;
-    display: flex;
-    gap: 10px;
-    height: 78px;
-    min-width: 0;
-    overflow: hidden;
-    width: 100%;
-}
-
 .project-carousel {
     max-width: 700px;
-}
-
-.carousel-nav {
-    align-items: center;
-    background: var(--accent);
-    border: 0;
-    border-radius: 50%;
-    color: var(--text);
-    cursor: pointer;
-    display: inline-flex;
-    flex: 0 0 34px;
-    font-size: 1.6rem;
-    font-weight: 700;
-    height: 34px;
-    justify-content: center;
-    line-height: 1;
-    padding: 0 0 3px;
-    transition: box-shadow .2s ease, transform .2s ease;
-    width: 34px;
-}
-
-.carousel-nav:hover {
-    box-shadow: 0 8px 18px rgba(253, 184, 19, .32);
-    transform: translateY(-2px);
-}
-
-.carousel-viewport {
-    flex: 1;
-    height: 100%;
-    min-width: 0;
-    overflow: hidden;
-}
-
-.carousel-track {
-    display: flex;
-    gap: 12px;
-    height: 100%;
-    transition: transform .45s ease;
-    will-change: transform;
 }
 
 .client-card,
@@ -357,18 +307,6 @@
 }
 
 @media (max-width: 600px) {
-    .client-carousel,
-    .project-carousel {
-        gap: 8px;
-        height: 64px;
-    }
-
-    .carousel-nav {
-        flex-basis: 30px;
-        height: 30px;
-        width: 30px;
-    }
-
     .client-card {
         flex-basis: 128px;
         height: 64px;

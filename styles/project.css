@@ -1,7 +1,0 @@
-.project-detail {
-    padding-bottom: clamp(64px, 10vw, 100px);
-}
-
-.project-detail .content-card {
-    border-radius: 8px;
-}

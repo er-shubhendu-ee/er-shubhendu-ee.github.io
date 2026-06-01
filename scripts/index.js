@@ -30,29 +30,29 @@ const skills = [
 ];
 
 const clients = [
-    { logo: "C1", name: "Client One", href: "clientele.html#client-one" },
-    { logo: "C2", name: "Client Two", href: "clientele.html#client-two" },
-    { logo: "C3", name: "Client Three", href: "clientele.html#client-three" },
-    { logo: "C4", name: "Client Four", href: "clientele.html#client-four" },
-    { logo: "C5", name: "Client Five", href: "clientele.html#client-five" },
-    { logo: "C6", name: "Client Six", href: "clientele.html#client-six" }
+    { logo: "C1", name: "Client One", route: "clientOne" },
+    { logo: "C2", name: "Client Two", route: "clientTwo" },
+    { logo: "C3", name: "Client Three", route: "clientThree" },
+    { logo: "C4", name: "Client Four", route: "clientFour" },
+    { logo: "C5", name: "Client Five", route: "clientFive" },
+    { logo: "C6", name: "Client Six", route: "clientSix" }
 ];
 
 const projects = [
     {
         title: "USB CDC + UVC Firmware",
         meta: "USB device stack",
-        href: "what-do-i-do.html#usb-cdc-uvc"
+        route: "usbCdcUvc"
     },
     {
         title: "BLE Streaming Platform",
         meta: "Wireless data pipeline",
-        href: "what-do-i-do.html#ble-streaming"
+        route: "bleStreaming"
     },
     {
         title: "Grid Connected Inverter Research",
         meta: "Power electronics",
-        href: "what-do-i-do.html#grid-inverter"
+        route: "gridInverter"
     }
 ];
 
@@ -82,9 +82,9 @@ const typingConsole = document.querySelector(".typing-console");
 const heroTitle = document.querySelector(".hero-title");
 const heroTitleRow = document.querySelector(".hero-title-row");
 const clientTrack = document.getElementById("clientTrack");
-const clientNavButtons = document.querySelectorAll("[data-client-direction]");
+const clientNavButtons = document.querySelectorAll(".client-carousel [data-carousel-direction]");
 const projectTrack = document.getElementById("projectTrack");
-const projectNavButtons = document.querySelectorAll("[data-project-direction]");
+const projectNavButtons = document.querySelectorAll(".project-carousel [data-carousel-direction]");
 
 function syncTypingConsoleHeight() {
     if (!profileCard || !typingConsole) {
@@ -130,83 +130,6 @@ function syncHeroLayout() {
 window.addEventListener("load", syncHeroLayout);
 window.addEventListener("resize", syncHeroLayout);
 
-function createLoopCarousel(track, navButtons, interval = 2800) {
-    let timer;
-    const carousel = track.closest(".client-carousel, .project-carousel");
-
-    function getStep() {
-        const firstCard = track?.firstElementChild;
-
-        if (!firstCard || !track) {
-            return 0;
-        }
-
-        const trackStyle = window.getComputedStyle(track);
-        const trackGap = parseFloat(trackStyle.columnGap) || 0;
-
-        return firstCard.offsetWidth + trackGap;
-    }
-
-    function resetTrack() {
-        track.style.transition = "none";
-        track.style.transform = "translateX(0)";
-        track.offsetHeight;
-        track.style.removeProperty("transition");
-    }
-
-    function moveForward() {
-        const step = getStep();
-
-        if (!track || !step || track.children.length < 2) {
-            return;
-        }
-
-        track.style.transform = `translateX(-${step}px)`;
-
-        window.setTimeout(() => {
-            track.appendChild(track.firstElementChild);
-            resetTrack();
-        }, 450);
-    }
-
-    function move(direction) {
-        if (direction < 0) {
-            track.prepend(track.lastElementChild);
-            resetTrack();
-            return;
-        }
-
-        moveForward();
-    }
-
-    function start() {
-        window.clearInterval(timer);
-        timer = window.setInterval(moveForward, interval);
-    }
-
-    function stop() {
-        window.clearInterval(timer);
-    }
-
-    navButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            move(Number(button.dataset.clientDirection || button.dataset.projectDirection));
-            start();
-        });
-    });
-
-    if (carousel) {
-        carousel.addEventListener("mouseenter", stop);
-        carousel.addEventListener("mouseleave", start);
-        carousel.addEventListener("focusin", stop);
-        carousel.addEventListener("focusout", start);
-    }
-
-    window.addEventListener("load", resetTrack);
-    window.addEventListener("resize", resetTrack);
-    start();
-}
-
 if (clientTrack) {
     clients.forEach(client => {
         const card = document.createElement("a");
@@ -214,7 +137,7 @@ if (clientTrack) {
         const name = document.createElement("span");
 
         card.className = "client-card";
-        card.href = client.href;
+        card.href = window.ROUTES.client(client.route);
         logo.className = "client-logo";
         name.className = "client-name";
         logo.textContent = client.logo;
@@ -224,7 +147,7 @@ if (clientTrack) {
         clientTrack.appendChild(card);
     });
 
-    createLoopCarousel(clientTrack, clientNavButtons);
+    window.createLoopCarousel(clientTrack, clientNavButtons);
 }
 
 if (projectTrack) {
@@ -234,7 +157,7 @@ if (projectTrack) {
         const meta = document.createElement("span");
 
         card.className = "project-slide-card";
-        card.href = project.href;
+        card.href = window.ROUTES.workSection(project.route);
         title.className = "project-slide-title";
         meta.className = "project-slide-meta";
         title.textContent = project.title;
@@ -244,7 +167,7 @@ if (projectTrack) {
         projectTrack.appendChild(card);
     });
 
-    createLoopCarousel(projectTrack, projectNavButtons, 3200);
+    window.createLoopCarousel(projectTrack, projectNavButtons, 3200);
 }
 
 const skillsContainer = document.getElementById("skillsContainer");
