@@ -5,11 +5,15 @@
 }
 
 .work-section {
+    align-items: center;
     background: #f1fbff;
     border: 2px solid rgba(0, 107, 255, .2);
     border-left: 6px solid var(--accent);
     border-radius: 8px;
     box-shadow: 0 7px 18px rgba(0, 76, 141, .1);
+    display: flex;
+    gap: 24px;
+    justify-content: space-between;
     scroll-margin-top: calc(var(--navbar-height) + 24px);
     padding: clamp(24px, 4vw, 34px);
 }
@@ -24,4 +28,29 @@
 .work-section p:last-child {
     color: var(--secondary);
     max-width: 760px;
+}
+
+.work-more {
+    align-items: center;
+    background: var(--accent);
+    border-radius: 8px;
+    color: var(--text);
+    display: inline-flex;
+    flex: 0 0 auto;
+    font-weight: 700;
+    justify-content: center;
+    padding: 11px 20px;
+    transition: box-shadow .2s ease, transform .2s ease;
+}
+
+.work-more:hover {
+    box-shadow: 0 10px 22px rgba(253, 184, 19, .38);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 700px) {
+    .work-section {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 }
