@@ -23,11 +23,28 @@
     min-width: 0;
 }
 
+.hero-title-row {
+    align-items: center;
+    display: flex;
+    gap: 14px;
+    justify-content: space-between;
+    max-width: 700px;
+    min-width: 0;
+    width: 100%;
+}
+
 .hero-title {
     color: var(--text);
-    font-size: clamp(1.4rem, 5vw, 4rem);
+    flex: 0 1 auto;
+    font-size: min(clamp(.7rem, 2.5vw, 2rem), var(--hero-title-fit-size, 2rem));
     line-height: 1.05;
     max-width: 100%;
+    min-width: 0;
+    white-space: nowrap;
+}
+
+.hero-title-row .primary-button {
+    flex: 0 0 auto;
     white-space: nowrap;
 }
 
@@ -208,6 +225,10 @@
 }
 
 @media (max-width: 600px) {
+    .hero-title {
+        font-size: min(clamp(.65rem, 3vw, .95rem), var(--hero-title-fit-size, .95rem));
+    }
+
     .typing-console {
         font-size: .9rem;
         padding: 18px;

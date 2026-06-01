@@ -53,6 +53,7 @@ animateTyping();
 const profileCard = document.querySelector(".profile-card");
 const typingConsole = document.querySelector(".typing-console");
 const heroTitle = document.querySelector(".hero-title");
+const heroTitleRow = document.querySelector(".hero-title-row");
 
 function syncTypingConsoleHeight() {
     if (!profileCard || !typingConsole) {
@@ -71,15 +72,23 @@ function fitHeroTitle() {
         return;
     }
 
-    const availableWidth = heroTitle.parentElement.clientWidth;
-    const measurementSize = 100;
+    const titleButton = heroTitleRow?.querySelector(".primary-button");
+    const titleRowStyle = heroTitleRow ? window.getComputedStyle(heroTitleRow) : null;
+    const titleRowGap = titleRowStyle ? parseFloat(titleRowStyle.columnGap) || 0 : 0;
+    const availableWidth = heroTitle.parentElement.clientWidth - (titleButton?.offsetWidth || 0) - titleRowGap;
+    const previousFitSize = heroTitle.style.getPropertyValue("--hero-title-fit-size");
 
-    heroTitle.style.fontSize = `${measurementSize}px`;
+    heroTitle.style.removeProperty("--hero-title-fit-size");
 
     const titleWidth = heroTitle.scrollWidth;
-    const fittedSize = Math.floor(measurementSize * availableWidth / titleWidth);
+    const currentSize = parseFloat(window.getComputedStyle(heroTitle).fontSize);
+    const fittedSize = Math.floor(currentSize * availableWidth / titleWidth);
 
-    heroTitle.style.fontSize = `${Math.max(fittedSize, 14)}px`;
+    if (titleWidth > availableWidth && availableWidth > 0) {
+        heroTitle.style.setProperty("--hero-title-fit-size", `${Math.max(fittedSize, 10)}px`);
+    } else if (previousFitSize) {
+        heroTitle.style.removeProperty("--hero-title-fit-size");
+    }
 }
 
 function syncHeroLayout() {
