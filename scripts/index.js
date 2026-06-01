@@ -1,9 +1,12 @@
 const roles = [
+    "Power Systems Researcher",
+    "System Architecturer",
     "Embedded Systems Developer",
     "Firmware Engineer",
     "BLE Systems Developer",
     "USB Firmware Engineer",
-    "Power Systems Researcher"
+    "High-Speed PCB designer",
+    "FPGA+10MSPS ADC+ DDR3 RAM"
 ];
 
 const skills = [
@@ -24,9 +27,7 @@ const skills = [
     "Modbus",
     "STM32MP1",
     "Bootloaders",
-    "KiCad",
-    "Gmsh",
-    "Elmer FEM"
+    "KiCad"
 ];
 
 const clients = [

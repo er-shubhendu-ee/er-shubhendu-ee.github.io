@@ -19,7 +19,8 @@
             <ul id="primaryMenu" class="nav-links">
                 <li><a href="../index.html" data-route="home">Home</a></li>
                 <li><a href="../who-am-i.html" data-route="about">Who I Am</a></li>
-                <li><a class="active" aria-current="page" href="../what-do-i-do.html" data-route="work">What I Do</a></li>
+                <li><a class="active" aria-current="page" href="../what-do-i-do.html" data-route="work">What I Do</a>
+                </li>
                 <li><a href="../clientele.html" data-route="clientele">Clientele</a></li>
                 <li><a href="../where-am-i.html" data-route="contact">Where I Am</a></li>
             </ul>
@@ -38,12 +39,85 @@
         <section class="project-detail container">
             <article class="content-card featured-card">
                 <p class="eyebrow">Overview</p>
-                <h2>Project Notes</h2>
-                <p>
-                    Use this page for deeper implementation notes, constraints, connection design,
-                    streaming behavior, testing, and outcomes for the BLE platform.
+                <h2>BLE Streaming Platform</h2>
+                <p> Development of a custom Bluetooth Low Energy platform for continuous data streaming between embedded
+                    devices and desktop/mobile applications. The platform was designed to support reliable transfer of
+                    sensor data, audio streams, image data, device telemetry, and control commands while operating
+                    within BLE throughput and power-consumption constraints. </p>
+                <p> The work included firmware development, GATT architecture design, communication protocol
+                    implementation, desktop application development, testing, debugging, and performance optimization.
                 </p>
             </article>
+
+            <article class="content-card">
+                <p class="eyebrow">Responsibilities</p>
+                <h2>Key Contributions</h2>
+                <ul>
+                    <li>Custom BLE service and characteristic design.</li>
+                    <li>Firmware development on Silicon Labs BLE platforms.</li>
+                    <li>Reliable notification-based streaming implementation.</li>
+                    <li>Desktop application development using Python.</li>
+                    <li>Audio acquisition, compression, and transfer.</li>
+                    <li>Image capture and transfer over BLE.</li>
+                    <li>Sensor and IMU data streaming.</li>
+                    <li>Connection management and state-machine implementation.</li>
+                    <li>Debugging using protocol analyzers and application logs.</li>
+                    <li>Performance tuning for throughput, latency, and power consumption.</li>
+                </ul>
+            </article>
+
+            <article class="content-card">
+                <p class="eyebrow">Architecture</p>
+                <h2>System Design</h2>
+                <p> The system consisted of a BLE-enabled embedded device communicating with desktop and mobile
+                    applications through custom GATT services. Data was organized into dedicated channels for control,
+                    telemetry, audio, image, battery monitoring, and sensor streaming. </p>
+                <p> The firmware implemented packet sequencing, buffering, transfer control, and event-driven processing
+                    to maintain reliable communication under varying radio conditions. </p>
+            </article>
+            <article class="content-card">
+                <p class="eyebrow">Technical Challenges</p>
+                <h2>Engineering Focus Areas</h2>
+                <ul>
+                    <li>Maintaining reliable high-rate notifications.</li>
+                    <li>Managing BLE MTU limitations.</li>
+                    <li>Fragmentation and reassembly of large data packets.</li>
+                    <li>Audio streaming under limited bandwidth conditions.</li>
+                    <li>Image transfer reliability and packet recovery.</li>
+                    <li>Connection stability during extended operation.</li>
+                    <li>Cross-platform interoperability testing.</li>
+                    <li>Power optimization during streaming operations.</li>
+                </ul>
+            </article>
+            <article class="content-card">
+                <p class="eyebrow">Technologies</p>
+                <h2>Tools & Platforms</h2>
+                <ul>
+                    <li>Bluetooth Low Energy (BLE)</li>
+                    <li>Silicon Labs BG22 / BGM Series</li>
+                    <li>STM32H7, STM32U5</li>
+                    <li>Camera, DMA</li>
+                    <li>C Firmware Development</li>
+                    <li>Python</li>
+                    <li>Bleak</li>
+                    <li>UART</li>
+                    <li>I²C</li>
+                    <li>SPI</li>
+                    <li>FreeRTOS</li>
+                    <li>Git</li>
+                    <li>Jira</li>
+                    <li>Confluence</li>
+                </ul>
+            </article>
+            <article class="content-card">
+                <p class="eyebrow">Outcome</p>
+                <h2>Results</h2>
+                <p> The platform successfully enabled continuous streaming of telemetry, sensor, audio, and image data
+                    between embedded devices and host applications. The resulting architecture provided a reusable
+                    foundation for future BLE-enabled products requiring reliable wireless data transfer and remote
+                    device management. </p>
+            </article>
+
         </section>
     </main>
 
