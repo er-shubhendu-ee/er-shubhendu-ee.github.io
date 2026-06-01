@@ -11,7 +11,9 @@
         projects: {
             usbCdcUvc: "usb-cdc-uvc.html",
             bleStreaming: "ble-streaming.html",
-            gridInverter: "grid-inverter.html"
+            gridInverter: "grid-inverter.html",
+            modbusRs485: "modbus-rs485.html"
+
         },
         clients: {
             clientOne: "client-one",

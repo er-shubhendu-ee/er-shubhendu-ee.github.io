@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,13 @@
     <link rel="stylesheet" href="styles/template.css">
     <link rel="stylesheet" href="styles/what-do-i-do.css">
 </head>
+
 <body>
     <header class="site-header">
         <nav class="navbar container" aria-label="Primary navigation">
             <a class="logo" href="index.html" data-route="home" aria-label="Shubhendu Banerjee home">BSB</a>
-            <button class="menu-button" type="button" aria-label="Open navigation menu"
-                aria-controls="primaryMenu" aria-expanded="false">
+            <button class="menu-button" type="button" aria-label="Open navigation menu" aria-controls="primaryMenu"
+                aria-expanded="false">
                 &#9776;
             </button>
             <ul id="primaryMenu" class="nav-links">
@@ -57,29 +59,6 @@
             </article>
         </section>
         <section class="work-sections container" aria-label="Project sections">
-            <article id="usb-cdc-uvc" class="work-section">
-                <div>
-                    <p class="eyebrow">Project</p>
-                    <h2>USB CDC + UVC Firmware</h2>
-                    <p>
-                        Firmware work for USB communication and video-class device behavior, covering
-                        enumeration, class descriptors, streaming constraints, host compatibility, and
-                        embedded debugging.
-                    </p>
-                </div>
-                <a class="work-more" href="project-pages/usb-cdc-uvc.html" data-project-route="usbCdcUvc">More</a>
-            </article>
-            <article id="ble-streaming" class="work-section">
-                <div>
-                    <p class="eyebrow">Project</p>
-                    <h2>BLE Streaming Platform</h2>
-                    <p>
-                        BLE-oriented platform work focused on reliable data movement, embedded device
-                        state, connection behavior, throughput tuning, and application integration.
-                    </p>
-                </div>
-                <a class="work-more" href="project-pages/ble-streaming.html" data-project-route="bleStreaming">More</a>
-            </article>
             <article id="grid-inverter" class="work-section">
                 <div>
                     <p class="eyebrow">Project</p>
@@ -92,6 +71,45 @@
                 </div>
                 <a class="work-more" href="project-pages/grid-inverter.html" data-project-route="gridInverter">More</a>
             </article>
+
+            <article id="usb-cdc-uvc" class="work-section">
+                <div>
+                    <p class="eyebrow">Project</p>
+                    <h2>USB CDC + UVC Firmware</h2>
+                    <p>
+                        Firmware work for USB communication and video-class device behavior, covering
+                        enumeration, class descriptors, streaming constraints, host compatibility, and
+                        embedded debugging.
+                    </p>
+                </div>
+                <a class="work-more" href="project-pages/usb-cdc-uvc.html" data-project-route="usbCdcUvc">More</a>
+            </article>
+
+            <article id="ble-streaming" class="work-section">
+                <div>
+                    <p class="eyebrow">Project</p>
+                    <h2>BLE Streaming Platform</h2>
+                    <p>
+                        BLE-oriented platform work focused on reliable data movement, embedded device
+                        state, connection behavior, throughput tuning, and application integration.
+                    </p>
+                </div>
+                <a class="work-more" href="project-pages/ble-streaming.html" data-project-route="bleStreaming">More</a>
+            </article>
+
+            <article id="modbus-rs485" class="work-section">
+                <div>
+                    <p class="eyebrow">Project</p>
+                    <h2>MODBUS over RS485 communication</h2>
+                    <p>
+                        Industrial communication platform featuring Modbus RTU Master/Slave
+                        firmware, RS485 networking, Delta HMI integration, and reliable
+                        operation in electrically noisy industrial environments.
+                    </p>
+                </div>
+                <a class="work-more" href="project-pages/modbus-rs485.html" data-project-route="modbusRs485">More</a>
+            </article>
+
         </section>
     </main>
 
@@ -110,4 +128,5 @@
     <script src="scripts/template.js"></script>
     <script src="scripts/what-do-i-do.js"></script>
 </body>
+
 </html>

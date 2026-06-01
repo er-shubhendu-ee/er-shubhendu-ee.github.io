@@ -19,7 +19,8 @@
             <ul id="primaryMenu" class="nav-links">
                 <li><a href="../index.html" data-route="home">Home</a></li>
                 <li><a href="../who-am-i.html" data-route="about">Who I Am</a></li>
-                <li><a class="active" aria-current="page" href="../what-do-i-do.html" data-route="work">What I Do</a></li>
+                <li><a class="active" aria-current="page" href="../what-do-i-do.html" data-route="work">What I Do</a>
+                </li>
                 <li><a href="../clientele.html" data-route="clientele">Clientele</a></li>
                 <li><a href="../where-am-i.html" data-route="contact">Where I Am</a></li>
             </ul>
@@ -36,14 +37,126 @@
             </p>
         </section>
         <section class="project-detail container">
-            <article class="content-card featured-card">
-                <p class="eyebrow">Overview</p>
-                <h2>Project Notes</h2>
-                <p>
-                    Use this page for deeper implementation notes, constraints, architecture,
-                    device behavior, test strategy, and outcomes for the USB CDC + UVC project.
-                </p>
-            </article>
+            <section class="project-detail container">
+                <article class="content-card featured-card">
+                    <p class="eyebrow">Overview</p>
+                    <h2>USB CDC + UVC Firmware Development</h2>
+                    <p>
+                        Development and customization of USB device firmware supporting
+                        Communication Device Class (CDC) and USB Video Class (UVC)
+                        functionality on resource-constrained embedded platforms.
+                    </p>
+
+                    <p>
+                        The work focused on USB device architecture, descriptor design,
+                        endpoint management, host interoperability, and reliable data
+                        transfer between embedded hardware and desktop operating systems.
+                    </p>
+                </article>
+
+                <article class="content-card">
+                    <p class="eyebrow">Responsibilities</p>
+                    <h2>Key Contributions</h2>
+                    <ul>
+                        <li>USB device stack integration and customization.</li>
+                        <li>CDC virtual COM port implementation.</li>
+                        <li>UVC device architecture and descriptor development.</li>
+                        <li>USB enumeration and host compatibility validation.</li>
+                        <li>Endpoint configuration and transfer management.</li>
+                        <li>Class-specific request handling.</li>
+                        <li>Debugging enumeration and descriptor issues.</li>
+                        <li>Firmware architecture design and integration.</li>
+                    </ul>
+                </article>
+
+                <article class="content-card">
+                    <p class="eyebrow">CDC Implementation</p>
+                    <h2>Communication Device Class</h2>
+                    <p>
+                        CDC functionality was implemented to provide a reliable virtual
+                        serial interface between the embedded device and host systems.
+                        The firmware handled configuration requests, data transfer,
+                        buffering, and communication state management while maintaining
+                        compatibility with standard operating system drivers.
+                    </p>
+                </article>
+
+                <article class="content-card">
+                    <p class="eyebrow">UVC Development</p>
+                    <h2>USB Video Class</h2>
+                    <p>
+                        UVC development involved studying class specifications,
+                        constructing descriptors, configuring streaming interfaces,
+                        and implementing the control mechanisms required for host
+                        recognition as a standard USB camera device.
+                    </p>
+
+                    <p>
+                        Particular attention was given to descriptor hierarchy,
+                        interface associations, endpoint configuration, and
+                        host-side interoperability.
+                    </p>
+                </article>
+
+                <article class="content-card">
+                    <p class="eyebrow">Firmware Architecture</p>
+                    <h2>Embedded Implementation</h2>
+                    <ul>
+                        <li>Interrupt-driven USB event processing.</li>
+                        <li>Endpoint state-machine implementation.</li>
+                        <li>Control transfer handling.</li>
+                        <li>Descriptor generation and maintenance.</li>
+                        <li>Memory and buffer management.</li>
+                        <li>Application-to-USB abstraction layers.</li>
+                        <li>Integration with embedded peripherals.</li>
+                        <li>Debugging and protocol validation.</li>
+                    </ul>
+                </article>
+
+                <article class="content-card">
+                    <p class="eyebrow">Technical Challenges</p>
+                    <h2>Engineering Focus Areas</h2>
+                    <ul>
+                        <li>USB enumeration failures.</li>
+                        <li>Descriptor compliance issues.</li>
+                        <li>Host operating system compatibility.</li>
+                        <li>CDC data throughput optimization.</li>
+                        <li>UVC descriptor complexity.</li>
+                        <li>Limited MCU memory resources.</li>
+                        <li>Endpoint synchronization.</li>
+                        <li>Protocol-level debugging and validation.</li>
+                    </ul>
+                </article>
+
+                <article class="content-card">
+                    <p class="eyebrow">Platforms & Tools</p>
+                    <h2>Technologies Used</h2>
+                    <ul>
+                        <li>STM32 Microcontrollers</li>
+                        <li>USB Full-Speed Device</li>
+                        <li>C Programming</li>
+                        <li>STM32CubeIDE</li>
+                        <li>USB Device Library</li>
+                        <li>Protocol Analyzers</li>
+                        <li>Logic Analyzers</li>
+                        <li>Git</li>
+                    </ul>
+                </article>
+
+                <article class="content-card">
+                    <p class="eyebrow">Outcome</p>
+                    <h2>Results</h2>
+                    <p>
+                        The project strengthened expertise in USB protocol internals,
+                        embedded communication stacks, descriptor architecture, and
+                        device-host interoperability. The resulting firmware framework
+                        provides a reusable foundation for future USB-enabled embedded
+                        products requiring communication and multimedia functionality.
+                    </p>
+                </article>
+
+            </section>
+
         </section>
     </main>
 

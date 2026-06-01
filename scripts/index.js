@@ -54,6 +54,11 @@ const projects = [
         title: "Grid Connected Inverter Research",
         meta: "Power electronics",
         route: "gridInverter"
+    },
+    {
+        title: "MODBUS over RS485",
+        meta: "Industrial communication",
+        route: "modbusRs485"
     }
 ];
 
