@@ -1,12 +1,14 @@
 const roles = [
-    "Power Systems Researcher",
     "System Architecturer",
+    "Power Electronics Researcher",
     "Embedded Systems Developer",
     "Firmware Engineer",
-    "BLE Systems Developer",
-    "USB Firmware Engineer",
+    "Wireless Connectivity Developer",
+    "Cloud Integrator",
+    "Analog Electronics System Designer",
+    "Sensor Interface Designer",
     "High-Speed PCB designer",
-    "FPGA+10MSPS ADC+ DDR3 RAM"
+    "FPGA Programmer"
 ];
 
 const skills = [
@@ -28,15 +30,6 @@ const skills = [
     "STM32MP1",
     "Bootloaders",
     "KiCad"
-];
-
-const clients = [
-    { logo: "C1", name: "Client One", route: "clientOne" },
-    { logo: "C2", name: "Client Two", route: "clientTwo" },
-    { logo: "C3", name: "Client Three", route: "clientThree" },
-    { logo: "C4", name: "Client Four", route: "clientFour" },
-    { logo: "C5", name: "Client Five", route: "clientFive" },
-    { logo: "C6", name: "Client Six", route: "clientSix" }
 ];
 
 const projects = [
@@ -137,19 +130,29 @@ window.addEventListener("load", syncHeroLayout);
 window.addEventListener("resize", syncHeroLayout);
 
 if (clientTrack) {
+    const clients = window.ROUTES.clients();
+
     clients.forEach(client => {
         const card = document.createElement("a");
         const logo = document.createElement("span");
-        const name = document.createElement("span");
 
         card.className = "client-card";
-        card.href = window.ROUTES.client(client.route);
+        card.href = window.ROUTES.client(client.key);
+        card.setAttribute("aria-label", client.name);
         logo.className = "client-logo";
-        name.className = "client-name";
-        logo.textContent = client.logo;
-        name.textContent = client.name;
 
-        card.append(logo, name);
+        if (client.logo) {
+            const logoImage = document.createElement("img");
+
+            logoImage.src = client.logo;
+            logoImage.alt = "";
+            logoImage.loading = "lazy";
+            logo.appendChild(logoImage);
+        } else {
+            logo.textContent = client.name.slice(0, 2).toUpperCase();
+        }
+
+        card.appendChild(logo);
         clientTrack.appendChild(card);
     });
 

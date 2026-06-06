@@ -7,3 +7,23 @@
     flex-direction: column;
     gap: 22px;
 }
+
+@media (min-width: 1000px) {
+    .page-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .contact-card {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 999px) {
+    .page-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+        grid-column: auto;
+    }
+}

@@ -16,12 +16,36 @@
 
         },
         clients: {
-            clientOne: "client-one",
-            clientTwo: "client-two",
-            clientThree: "client-three",
-            clientFour: "client-four",
-            clientFive: "client-five",
-            clientSix: "client-six"
+            trafitek: {
+                id: "trafitek",
+                name: "Trafitek Solutions Pvt. Ltd.",
+                logo: "res/trafitek.png"
+            },
+            liveline: {
+                id: "liveline",
+                name: "Liveline Electronics",
+                logo: "res/liveline.png"
+            },
+            adben: {
+                id: "adben",
+                name: "Adben Industries Pvt. Ltd.",
+                logo: "res/adben.jpg"
+            },
+            abe: {
+                id: "abe",
+                name: "A. B. Engineers",
+                logo: "res/abe.png"
+            },
+            rnr: {
+                id: "rnr",
+                name: "RNR Industries",
+                logo: "res/rnr.png"
+            },
+            electroserv: {
+                id: "electroserv",
+                name: "Electroserv Engineering",
+                logo: "res/electroserv.png"
+            }
         }
     };
 
@@ -42,7 +66,14 @@
             return withHash(this.page("work"), fileStem(paths.projects[key]));
         },
         client(key) {
-            return withHash(this.page("clientele"), paths.clients[key]);
+            return withHash(this.page("clientele"), paths.clients[key].id);
+        },
+        clients() {
+            return Object.entries(paths.clients).map(([key, client]) => ({
+                key,
+                ...client,
+                logo: client.logo ? fromRoot(client.logo) : ""
+            }));
         },
         paths
     };

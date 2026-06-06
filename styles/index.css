@@ -49,6 +49,11 @@
     padding: 10px 12px;
 }
 
+.client-card {
+    flex: 0 0 96px;
+    justify-content: center;
+}
+
 .project-slide-card {
     align-items: flex-start;
     color: var(--text);
@@ -62,16 +67,24 @@
 
 .client-logo {
     align-items: center;
-    background: #006BFF;
+    background: #fff;
+    border: 1px solid rgba(0, 107, 255, .12);
     border-radius: 8px;
     color: #fff;
     display: inline-flex;
-    flex: 0 0 36px;
+    flex: 0 0 72px;
     font-size: .8rem;
     font-weight: 700;
-    height: 36px;
+    height: 46px;
     justify-content: center;
-    width: 36px;
+    width: 72px;
+}
+
+.client-logo img {
+    display: block;
+    max-height: 34px;
+    max-width: 60px;
+    object-fit: contain;
 }
 
 .client-name,
@@ -308,7 +321,7 @@
 
 @media (max-width: 600px) {
     .client-card {
-        flex-basis: 128px;
+        flex-basis: 82px;
         height: 64px;
         padding: 8px 10px;
     }
@@ -320,9 +333,14 @@
     }
 
     .client-logo {
-        flex-basis: 32px;
-        height: 32px;
-        width: 32px;
+        flex-basis: 60px;
+        height: 40px;
+        width: 60px;
+    }
+
+    .client-logo img {
+        max-height: 30px;
+        max-width: 50px;
     }
 
     .client-name,

@@ -35,7 +35,8 @@
 
 .clientele-logo {
     align-items: center;
-    background: var(--bright-blue);
+    background: #fff;
+    border: 1px solid rgba(0, 107, 255, .12);
     border-radius: 8px;
     color: #fff;
     display: inline-flex;
@@ -44,6 +45,13 @@
     height: 48px;
     justify-content: center;
     width: 48px;
+}
+
+.clientele-logo img {
+    display: block;
+    max-height: 36px;
+    max-width: 40px;
+    object-fit: contain;
 }
 
 .clientele-name {
