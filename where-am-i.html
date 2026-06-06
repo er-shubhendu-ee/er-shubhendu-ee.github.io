@@ -5,10 +5,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Where I Am | Shubhendu Banerjee</title>
+    <!-- MapLibre GL JS Stylesheet (Required for OpenFreeMap rendering) -->
+    <link href="https://unpkg.com/maplibre-gl@^5.12.0/dist/maplibre-gl.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="styles/template.css">
     <link rel="stylesheet" href="styles/where-am-i.css">
     <link rel="stylesheet" href="styles/template.css">
     <link rel="stylesheet" href="styles/form.css">
+
+    <style>
+        /* Embedded styling ensures map scales nicely inside your card column */
+        .location-card {
+            position: relative;
+        }
+
+        .location-card p {
+            margin-bottom: 1em;
+        }
+
+        .direction-tooltip {
+            position: absolute;
+            z-index: 2;
+            padding: 8px 12px;
+            border-radius: 6px;
+            background: rgba(17, 24, 39, 0.92);
+            color: #fff;
+            font-size: 0.88rem;
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(12px, 12px);
+            transition: opacity 160ms ease, transform 160ms ease;
+            white-space: nowrap;
+        }
+
+        .direction-tooltip.is-visible {
+            opacity: 1;
+            transform: translate(12px, 8px);
+        }
+
+        .reviews-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            padding: 0 16px;
+            border-radius: 6px;
+            background: #111827;
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 160ms ease, transform 160ms ease;
+        }
+
+        .reviews-button:hover,
+        .reviews-button:focus-visible {
+            background: #2563eb;
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        #map {
+            width: 100%;
+            height: 300px;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            overflow: hidden;
+        }
+    </style>
 </head>
 
 <body>
@@ -87,21 +152,31 @@
             </article>
 
             <div class="contact-info">
-                <article class="content-card">
+                <article class="content-card location-card">
                     <h2>Location</h2>
                     <p>
-                        Howrah, West Bengal, India<br>
+                        Device Design Lab, Baruipur, South 24 Parganas, West Bengal, India<br>
                         Available for remote collaborations and consulting engagements.
                     </p>
+                    <p>
+                        <a href="https://www.google.com/maps/place/Device+Design+Lab/@22.3313025,88.5669683,17z/data=!4m14!1m7!3m6!1s0x3a0211a584aed655:0x25dda98df3cd91dc!2sDevice+Design+Lab!8m2!3d22.3312976!4d88.5695432!16s%2Fg%2F11h0hp_slx!3m5!1s0x3a0211a584aed655:0x25dda98df3cd91dc!8m2!3d22.3312976!4d88.5695432!16s%2Fg%2F11h0hp_slx?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D"
+                            class="reviews-button" target="_blank" rel="noopener noreferrer">Google reviews</a>
+                    </p>
+                    <div id="directionTooltip" class="direction-tooltip" aria-hidden="true">
+                        Click the map to get directions
+                    </div>
+                    <!-- Map element injection node -->
+                    <div id="map"></div>
                 </article>
 
                 <article class="content-card">
                     <h2>Profiles</h2>
-                    <p>
-                        GitHub<br>
-                        LinkedIn<br>
-                        Research & Technical Publications
-                    </p>
+                    <ul>
+                        <li><a href="https://www.github.com/er-shubhendu-ee" target="_blank">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/devdesignlab/" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://www.devicedesignlab.in/rlog" target="_blank">Research & Technical
+                                Publications</a></li>
+                    </ul>
                 </article>
 
                 <article class="content-card">
@@ -127,6 +202,55 @@
             </nav>
         </div>
     </footer>
+
+    <!-- MapLibre Core Library Dependancy -->
+    <script src="https://unpkg.com/maplibre-gl@^5.12.0/dist/maplibre-gl.js"></script>
+    <script>
+        // OpenFreeMap Setup Engine
+        const locationCoordinates = [88.5695432, 22.3312976]; // [Longitude, Latitude] for Device Design Lab
+
+        const map = new maplibregl.Map({
+            container: 'map',
+            style: 'https://tiles.openfreemap.org/styles/liberty',
+            center: locationCoordinates,
+            zoom: 13
+        });
+
+        // Add standard zooming UI overlays
+        map.addControl(new maplibregl.NavigationControl());
+
+        map.on('click', () => {
+            window.open('https://www.google.com/maps/dir/?api=1&destination=22.3312976,88.5695432&destination_place_id=ChIJVdauhKURAjoR3JHNTz-Y3SU', '_blank', 'noopener,noreferrer');
+        });
+
+        const locationCard = document.querySelector('.location-card');
+        const directionTooltip = document.getElementById('directionTooltip');
+        let tooltipTimer;
+
+        locationCard.addEventListener('mousemove', (event) => {
+            const cardBounds = locationCard.getBoundingClientRect();
+
+            directionTooltip.style.left = `${event.clientX - cardBounds.left}px`;
+            directionTooltip.style.top = `${event.clientY - cardBounds.top}px`;
+            directionTooltip.classList.add('is-visible');
+
+            clearTimeout(tooltipTimer);
+            tooltipTimer = setTimeout(() => {
+                directionTooltip.classList.remove('is-visible');
+            }, 2000);
+        });
+
+        locationCard.addEventListener('mouseleave', () => {
+            clearTimeout(tooltipTimer);
+            directionTooltip.classList.remove('is-visible');
+        });
+
+        // Drop a focal location anchor pin
+        new maplibregl.Marker({ color: '#007BFF' }) // You can switch hex values to match your theme
+            .setLngLat(locationCoordinates)
+            .addTo(map);
+    </script>
+
     <script src="scripts/routes.js"></script>
     <script src="scripts/template.js"></script>
     <script src="scripts/where-am-i.js"></script>
