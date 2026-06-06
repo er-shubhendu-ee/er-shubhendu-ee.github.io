@@ -14,6 +14,9 @@ const roles = [
 const skills = [
     "STM32",
     "ESP32",
+    "Camera",
+    "DCMI",
+    "DMA",
     "BLE",
     "BLE Mesh",
     "USB",
