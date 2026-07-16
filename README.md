@@ -2,7 +2,7 @@
 
 ## Embedded Firmware Engineer | Power Electronics & Electronics Product Developer
 
-I am an Embedded Firmware Engineer and Electronics Product Developer with 6+ years of experience designing and developing embedded systems for industrial automation, wireless connectivity, power electronics, and energy systems.
+I am an Embedded Firmware Engineer and Electronics Product Developer with 12+ years of experience designing and developing embedded systems for industrial automation, wireless connectivity, power electronics, and energy systems.
 
 My expertise spans firmware architecture, embedded C/C++, real-time systems, communication protocols, hardware integration, and grid-connected power converter control. I work across the complete product development lifecycle, from concept and PCB design to production-ready firmware deployment.
 
